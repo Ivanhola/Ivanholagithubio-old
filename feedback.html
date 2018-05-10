@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Ivan Llamas Final Project Feedback</title>
+	<link href="layout.css" type="text/css" rel="stylesheet">
+	
+<link href="mystyle.css" type="text/css" rel="stylesheet">	
+
+	
+<!--
+	Final Project by Ivan Llamas
+-->
+		
+</head>
+
+<body>
+<header>
+
+</header>
+   <div class="navbar">
+<nav>
+
+<p><a href="index.html">Home</a></p> 
+<p><a href="favlinks.html">Favorite Links</a></p> 
+<p><a href="resume.html">Resume</a></p> 
+<p><a href="other.html">My gaming achievements</a></p> 
+<p style="text-align: center;color: white; font-family: cursive;">Feedback</p> 
+</nav>
+    </div>
+
+<div id="main">
+    <div id="Grid">
+        
+
+        <h1>Ivan Llamas's Feedback Page</h1>
+        <p><img class="floatright" src="want-feedback.png" alt="Want Feedback"></p>
+   
+    <p>We welcome your thoughts! Please feel free to fill out our form below and send us your feedback. </p>
+
+    <form action="response.html" method="get"  style="margin-left: 200px;">
+        <fieldset id="feedbackinfo">
+            <legend>Feedback Info</legend>
+            <p><label for="comments">Comments: </label><textarea rows="5" cols="40" name="comments" id="comments" required="required" placeholder="** Required Entry **"></textarea>
+            <span style="color:red">*</span></p>
+            <p><label for="re">Your feedback is regarding:</label>
+                <select name="re" id="re">
+            <option value="none">Choose One!</option>
+            <option value="homepg">Home Page</option>
+            <option value="resumepg">Resume Page</option>            
+            <option value="favpg">Favorite Links Page</option>
+            <option value="feedbackpg">Feedback Page</option>
+            <option value="site">Web Site</option>
+            <option value="other">Other</option>
+            </select>
+            </p>
+        </fieldset>
+        <fieldset id="contactinfo">
+            <legend>Contact Info</legend>
+            <p><label for="name">Name: </label><input type="text" name="name" id="name" required="required" placeholder="Name Required"><span style="color:red">*</span></p>
+            <p>How can we contact you? (check all that apply)<br>
+                <input type="checkbox" name="call" id="call"><label for="call"> Call? </label> <input type="checkbox" name="text" id="text"><label for="text"> Text? </label> <input type="checkbox" name="email" id="email"><label for="email"> Email? </label></p>
+            <p><label for="phonenum"> Phone: </label><input type="tel" name="phonenum" id="phonenum" pattern="\d{3}[\-]\d{3}[\-]\d{4}" placeholder="xxx-xxx-xxxx"><span style="color:red">*</span></p>
+            <p><label for="emailaddy"> Email: </label><input type="email" name="emailaddy" id="emailaddy"></p>
+        </fieldset>
+        <p><input type="submit" value="Send Feedback"></p>
+    </form>
+<footer>
+Copyright © 2018 by Ivan Llamas, All rights reserved.
+</footer>
+</div>
+</div>
+</body>
+</html>
+
