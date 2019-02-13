@@ -1,72 +1,245 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ivan Llamas</title>
-    <link rel="stylesheet" type="text/css" href="css/page.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-    <script src="javascript/indexJS.js" ></script>
+    <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="CSS/mainmenu.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"/>
+        <link rel="stylesheet" type="text/css" href="CSS/header.css" />
+        <link rel="stylesheet" type="text/css" href="CSS/menuGrid.css" />
+        <link rel="stylesheet" type="text/css" href="CSS/footer.css">
+    <title>CCCV Web Test</title>
   </head>
+
+
   <body>
-    <div id="IndexHeader">
-          
-            <nav id="navi">
-                <ul>
-                    <li><a href="Contact.html">Contact</a></li> 
-                    <li><a href="Resume.html">Resume</a></li> 
-                    <li><a href="#" class="active">Home</a></li> 
-                </ul>
-            </nav>  
-            </div>
-      
-    <div class="welcomeImg">
-        <h1 class="welcomeTitle">Ivan Llamas</h1>
-        <h3 class="welcomeDesc">Student. Developer. Gamer.</h3>
-        <h3 class ="learnMore"> Learn More </h4>
-        <div class="arrow"></div>
-    </div>
-      
-      
-    <div class="aboutMe">
-      <div class="profile">
-        <img src="images/profilePlaceholder.png" class="profilePicture" />
-        <div class="aboutMeText">
-          <h4>
-            Hi I'm Ivan Llamas. I studied Computer Programming in Riverside, CA. 
-            I've grown up with technology my whole life and
-            learning how it works is something I enjoy doing not only in the
-            classroom, but on my own as well. Some of my other hobbys include:
-            competitive gaming, video editing, photo-editing, and the
-            occasional traveling. My goal is to be at the forefront
-            of this fast-evolving technological revolution.
-          </h4>
-        </div>
+
+    <!-- Our Site header div-->
+    <div class="siteHeader">
+      <h2>  </h2>
+        <a href="index.html"><img src="Icons/CCCV White.png" alt="Logo" class="logo"></a>
+        <input type="checkbox" id="hamBurger">
+        <label for="hamBurger" class="show-hambrger-btn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <ul class="menu">
+          <a href="http://calvaryccv.org/watch-live/">Media</a>
+          <a href="http://calvaryccv.org/new-here/">Connect</a>
+          <a href="http://calvaryccv.org/events/">Events</a>
+          <a href="http://calvaryccv.org/serve/">Serve</a>
+          <a href="https://app.securegive.com/calvaryccv" class="give active">Give</a>
+          <input type="text" name="" value="" placeholder="Search">
+          <label for="hamBurger" class="hide-hambrger-btn">
+            <i class="fas fa-times"></i>
+          </label>
+        </ul>
+
+
+    </div> <!-- end of .siteHeader -->
+
+    <!-- Used to fix our element divs below the header -->
+    <div class="indexFix"></div>
+
+<!-- Our main body CSS Grid-->
+ <div class="grid-container">
+   <!--  Our Israel image banner -->
+   <div class="israelBanner"></div>
+
+   <!-- White space used on the left and right side of the page-->
+  <div class="blankSpace2"></div>
+  <div class="blankSpace"></div>
+
+  <!-- Our ISRAEL 2019 Description div -->
+  <div class="israelDescription">
+    <h1>ISRAEL 2019</h1>
+    <p>Join Pastor David on a tour through Israel!
+    The tour will take place from Sunday, March 17, through
+  Thursday, March 28 and the cost is $3,957 per person. The cost includes round trip
+flights, deluxe hotels with breakfast and dinner daily plus four lunches, all transfers, entrance
+fees, taxes and tips to hotels, drivers, and guides.</p>
+
+<!-- Hidden Registration button, visible in mobile -->
+<div class="is-register-desc">
+  <div class="is-register-desc-content">
+    <h3><a href="http://inspiredtravel.com/chino19/">Register</a></h3>
+  </div>
+</div>
+
+</div> <!-- End of description div -->
+
+
+<!-- Our Right side, description of cost, date, and Contact-->
+  <div class="isrealPurchase">
+    <!-- Flex box wrapper -->
+    <div class="israel-purchase-wrapper">
+
+      <div class="irw-date">
+                  <div class="dateLogo">
+                        <img src="Icons/Date.svg" alt="CostLogo">
+                  </div>
+                  <div class="date-content">
+                        <h1>DATE</h1>
+                        <p>March 17 - 28</p>
+                  </div>
       </div>
-    </div>
-      <div id ="stophere"></div>  
-    <div class = "technologiesContainer">
-      <h1 class = "techContainerTitle"> Technologies </h1>
-      <div class = "technologies">
-        <div class = "technology">
-          <h2> Java </h2>
-          <h4> 2+ years of object oriented programming within education.</h4>
-        </div>
-          
-          <div class = "technology">
-          <h2> JavaFx </h2>
-          <h4> 2+ years of object oriented programming within education. Firm understanding
-            of JavaFX, GUI design and working with DerbyDB.</h4>
-        </div>
-        
-        <div class = "technology">
-           <h2>Web Development</h2>
-           <h4> Experience with HTML/CSS, JavaScript, and some PHP. Have a basic understanding of mySQL with some experience.
-             Used the development of this website to push skills further.</h4>
-         </div>
+
+      <div class="irw-cost">
+                <div class="costLogo">
+                      <img src="Icons/Cost.svg" alt="CostLogo">
+                </div>
+                <div class="cost-content">
+                      <h1>COST</h1>
+                      <p>$3,957</p>
+                </div>
       </div>
-    </div>
-    <div class="endBorder">
-      <h1>  </h1>
-    </div>
+
+      <div class="irw-contact">
+          <div class="contactLogo">
+                <img src="Icons/Contact.svg" alt="CostLogo">
+          </div>
+                <div class="contact-content">
+                      <h1>CONTACT</h1>
+                      <p> Carin Schaller</p>
+                      <p> (909) 464-8255 Ext. 263 </p>
+                      <p><a href="mailto:carins@calvaryccv.org"  style="color: #31383F;">carins@calvaryccv.org</a></p>
+                </div>
+      </div>
+    </div><!-- End of flex box wrapper -->
+
+  </div> <!-- End of israelPurchase div -->
+
+        <!-- Bottom left, empty space in the main body-->
+  <div class="israelEmpty"></div>
+
+        <!-- Our bottom right, share & Register buttons -->
+  <div class="israelShare">
+        <!-- Flexbox wrapper to align items as flex:columns -->
+    <div class="is-wrapper">
+          <div class="is-register">
+              <div class="is-register-content">
+                  <h3><a href="http://inspiredtravel.com/chino19/">Register</a></h3>
+              </div>
+          </div>
+
+          <div class="is-share">
+              <div class="is-share-content">
+                  <h3>Share</h3>
+              </div>
+              <div class="imgShare">
+                      <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.ivanllamas.com%2F&amp;src=sdkpreparse"><img src="Icons/Facebook.svg" alt=""></a>
+                      <a href="mailto:carins@calvaryccv.org"><img src="Icons/Email.svg" alt=""></a>
+                      <a href="javascript:copyTextToClipboard('www.ivanllamas.com')"><img src="Icons/Link.svg" alt=""></a>
+              </div>
+          </div>
+  </div><!-- End of flex box wrapper-->
+
+
+</div><!-- End of Grid section-->
+
+
+</div><!-- End of our main grid container -->
+
+
+
+<div class="footer-grid-container">
+        <div class="footer-left-empty"></div>
+        <div class="footer-service-times">
+                <h4>
+                  SERVICE TIMES
+                </h4>
+
+                <p>
+                  <strong style="color: #D6AA47;">SUNDAY</strong>
+                  <br/>
+                  8:30am | 10:45am | 5pm
+                </p>
+                <p>
+	              	<strong class="NotBold"style="color: #D6AA47;">ASL</strong><br> Sunday: 8:30am
+	              </p>
+                <p>
+		              <strong class="NotBold"style="color: #D6AA47;">Spanish Service</strong><br> Sunday: 10:45am<br><br>
+	              </p>
+                <p>
+		              <strong style="color: #D6AA47;">WEDNESDAY</strong><br> 7pm
+	              </p>
+
+        </div>
+
+        <div class="footer-office-info">
+                <h4>
+                  OFFICE INFO
+                </h4>
+                <p>
+                  <strong style="color: #D6AA47;">ADDRESS</strong>
+                <br/>
+                  2205 Pipeline Ave. Chino, CA 91710
+
+                </p>
+                <p>
+                  <strong style="color: #D6AA47;">HOURS</strong><br> Mon - Fri 9am - 5pm
+                </p>
+                <p>
+                  <strong style="color: #D6AA47;">PHONE</strong><br> (909) 464-8255<br>
+                </p>
+                <p>
+                  <strong style="color: #D6AA47;">EMAIL</strong><br> <a href="mailto:contact@calvaryccv.org" class="emailHover">contact@calvaryccv.org</a>
+                </p>
+        </div>
+
+        <div class="footer-logo">
+                <a href="http://calvarycca.org"><img src="Icons/CCA.svg" alt=""></a>
+
+        </div>
+
+
+        <div class="footer-social">
+                <!-- Flexbox Wrapper -->
+            <div class="icon-wrapper">
+                  <a href="https://www.facebook.com/CalvaryChapelChinoValley/ "><img src="Icons/FB_White with Negative.svg" alt=""></a>
+                  <a href="https://www.instagram.com/calvaryccv/ "><img src="Icons/Insta_White with Negative.svg" alt=""></a>
+                  <a href="https://www.youtube.com/user/CCChinoValley "><img src="Icons/YouTube_White with Negative.svg" alt=""></a>
+            </div><!-- End of flexbox -->
+        </div>
+      </div><!-- End of Foot CSS Grid Container-->
+<div class="copyright"><span>Calvary Chapel Chino Valley © 2017 All Rights Reserved</span></div>
+
+
+<script>
+//Copy to clipboard Script/Function Quick and easy way to copy to clipboard
+function copyTextToClipboard(text) {
+  let textArea = document.createElement("textarea");
+  textArea.style.position = 'fixed';
+  textArea.style.top = 0;
+  textArea.style.left = 0;
+  textArea.style.width = '2em';
+  textArea.style.height = '2em';
+  textArea.style.padding = 0;
+  textArea.style.border = 'none';
+  textArea.style.outline = 'none';
+  textArea.style.boxShadow = 'none';
+  textArea.style.background = 'transparent';
+  textArea.value = text;
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+  try {
+    let successful = document.execCommand('copy');
+    let msg = successful ? 'successful' : 'unsuccessful';
+    console.log('Copying text command was ' + msg);
+    alert('Copied to clipboard!');
+  } catch (err) {
+    console.log('Unable to copy');
+  }
+  document.body.removeChild(textArea);
+}
+
+
+
+
+</script>
   </body>
+
+
+
+
 </html>
