@@ -30,7 +30,7 @@ url("../CSS/BebasNeue-Regular.woff2") format("woff2");
 }
 
 .israelBanner { grid-area: israelBanner;
-  background-image: url('../Icons/Banner_israel.jpg');
+  background-image: url('../Icons/Banner_Israel.jpg');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   margin-bottom: 40px;
