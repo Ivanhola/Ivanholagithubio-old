@@ -1,0 +1,150 @@
+*{
+  margin: 0;
+	padding: 0;
+  font-family: "montserrat", sans-serif;
+}
+
+body,html{
+  height: 100%;
+  width: 100%;
+
+
+}
+
+
+
+.grid-container {
+  margin: auto;
+    display: grid;
+    grid-template-columns: 1.4fr 0.6fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "navMenu mainBody mainBody mainBody" 
+                          "navMenu mainBody mainBody mainBody" 
+                          "navMenu mainBody mainBody mainBody";
+
+
+  }
+  
+  .navMenu { 
+   
+    grid-area: navMenu; 
+
+    position: fixed;    
+    width: 35vw;
+    height: 100%;
+
+  }
+  .navMenu-container{
+    border-right: solid black 1px;
+    
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #689fb6;
+
+    
+  }
+  .box{
+    
+    flex-basis: 20%;
+    flex-grow: 1;
+    
+
+  
+    
+   
+  }
+  .box h1{
+    text-align: center;
+    font-size: 5.6vw;
+    /*font-size: 4.5em;*/
+    color: #fff;
+    text-shadow: 5px 2px 8px rgba(0,0,0,0.44);
+  
+  }
+
+  .box h1:hover{
+    text-decoration: underline;
+  }
+
+  .box1{
+    flex-basis: 20%;
+    flex-grow: 1;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+   
+  }
+  .box1 img{
+    border-radius: 50%;
+    height: 10vw;
+    width: 10vw;
+    
+  }
+
+  .social{
+    flex-basis: 20%;
+    flex-grow: 1;
+    display: flex;
+    margin-top: 30px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .social img{
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 5vw;
+    width: 5vw;
+    box-shadow: -2px 8px 32px -4px rgba(0,0,0,0.3);
+    -webkit-box-shadow: -2px 8px 32px -4px rgba(0,0,0,0.3);
+    -moz-box-shadow: -2px 8px 32px -4px rgba(0,0,0,0.3);
+  }
+
+  .navMenu-navBar{
+    
+    text-align: center;  
+    flex-basis: 25%;
+    flex-grow: 1;
+ 
+  
+    z-index: 1;
+
+    
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transition: 0.5s;
+    
+
+  }
+
+  .navMenu-navBar a{
+
+    padding: 4px 8px 4px 8px;
+    text-decoration: none;
+    font-size: 1.8vw;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+    text-shadow: 5px 2px 8px rgba(0,0,0,0.44);
+
+  }
+
+  .navMenu-navBar a:hover{
+    text-decoration: underline;
+    color: #f1f1f1;
+  }
+
+  @media screen and (max-width:1000px) {
+    .navMenu-navBar {padding-top: 15px;}
+    .navMenu-navBar a {font-size: 3vw;}
+  }
+
+  
+  .mainBody { 
+    height: 1000px;
+    overflow: scroll;
+    grid-area: mainBody; 
+    background: #fff;
+  }
