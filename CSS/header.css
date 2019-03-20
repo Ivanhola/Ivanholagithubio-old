@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+
 *{
   margin: 0;
 	padding: 0;
@@ -5,6 +8,7 @@
 }
 
 body,html{
+  background: #313238;
   height: 100%;
   width: 100%;
 
@@ -13,38 +17,25 @@ body,html{
 
 
 
-.grid-container {
-  margin: auto;
-    display: grid;
-    grid-template-columns: 1.4fr 0.6fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas: "navMenu mainBody mainBody mainBody" 
-                          "navMenu mainBody mainBody mainBody" 
-                          "navMenu mainBody mainBody mainBody";
 
-
-  }
   
   .navMenu { 
-   
-    grid-area: navMenu; 
-
     position: fixed;    
     width: 35vw;
     height: 100%;
 
+
   }
   .navMenu-container{
-    border-right: solid black 1px;
-    
+    border-right: solid black 1px;   
     display: flex;
     flex-direction: column;
     height: 100%;
-    background: #689fb6;
+    background: #17151A;
 
     
   }
-  .box{
+  .navMenu-logo{
     
     flex-basis: 20%;
     flex-grow: 1;
@@ -54,7 +45,9 @@ body,html{
     
    
   }
-  .box h1{
+  .navMenu-logo h1{
+    font-family: "Noto Sans",serif;
+    
     text-align: center;
     font-size: 5.6vw;
     /*font-size: 4.5em;*/
@@ -63,11 +56,11 @@ body,html{
   
   }
 
-  .box h1:hover{
+  .navMenu-logo h1:hover{
     text-decoration: underline;
   }
 
-  .box1{
+  .navMenu-avatar{
     flex-basis: 20%;
     flex-grow: 1;
     display: flex;
@@ -76,7 +69,7 @@ body,html{
     justify-content: center;
    
   }
-  .box1 img{
+  .navMenu-avatar img{
     border-radius: 50%;
     height: 10vw;
     width: 10vw;
@@ -84,10 +77,11 @@ body,html{
   }
 
   .social{
-    flex-basis: 20%;
+ 
+    flex-basis: 10%;
     flex-grow: 1;
     display: flex;
-    margin-top: 30px;
+
     align-items: center;
     justify-content: center;
   }
@@ -103,9 +97,9 @@ body,html{
   }
 
   .navMenu-navBar{
-    
+
     text-align: center;  
-    flex-basis: 25%;
+    flex-basis: 20%;
     flex-grow: 1;
  
   
@@ -120,8 +114,9 @@ body,html{
   }
 
   .navMenu-navBar a{
-
-    padding: 4px 8px 4px 8px;
+    text-transform: uppercase;
+    font-family: "Open Sans", sans-serif;
+    padding: 2px 8px 2px 8px;
     text-decoration: none;
     font-size: 1.8vw;
     color: #fff;
@@ -141,10 +136,22 @@ body,html{
     .navMenu-navBar a {font-size: 3vw;}
   }
 
+  /*init our body*/
   
   .mainBody { 
-    height: 1000px;
-    overflow: scroll;
-    grid-area: mainBody; 
-    background: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    overflow-y: scroll;
+    margin-left: 35vw; 
+    font-size: 28;
+    background: #d8d8d8;
   }
+
+  .mainBody > div{
+
+    width: 63vw;
+    margin: 10px;    
+
+  }
+  
