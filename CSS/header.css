@@ -146,7 +146,7 @@ body,html{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    overflow-y: scroll;
+
     margin-left: 35vw; 
     font-size: 28;
     overflow-x: hidden;    
