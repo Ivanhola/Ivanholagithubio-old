@@ -8,7 +8,7 @@
 }
 
 body,html{
-  background: #313238;
+  background: #d8d8d8;
   height: 100%;
   width: 100%;
 
@@ -86,11 +86,15 @@ body,html{
     justify-content: center;
   }
 
-  .social img{
+  .social i{
+    color: whitesmoke;
     margin-left: 5px;
     margin-right: 5px;
+    font-size: 4vw;
+    /* size for image icons
     height: 5vw;
     width: 5vw;
+    */
     box-shadow: -2px 8px 32px -4px rgba(0,0,0,0.3);
     -webkit-box-shadow: -2px 8px 32px -4px rgba(0,0,0,0.3);
     -moz-box-shadow: -2px 8px 32px -4px rgba(0,0,0,0.3);
@@ -145,13 +149,13 @@ body,html{
     overflow-y: scroll;
     margin-left: 35vw; 
     font-size: 28;
+    overflow-x: hidden;    
     background: #d8d8d8;
   }
 
   .mainBody > div{
-
-    width: 63vw;
-    margin: 10px;    
+    width: 97%;
+    margin: 1vw;    
 
   }
   
