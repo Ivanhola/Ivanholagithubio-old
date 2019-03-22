@@ -113,6 +113,32 @@
 
 }
 
+  @media screen and (min-width:1900px) {
+      
+    .pageContent , .pageContent1, .pageContent2, .pageContent3{
+    position: relative;
+    background-color: white; 
+    border-radius: 5px;
+    width: 29vw !important;
+    height: 29vw;
+    -webkit-box-shadow: 1px 3px 3px -1px rgba(0,0,0,0.44); 
+    box-shadow: 1px 3px 3px -1px rgba(0,0,0,0.44);
+    transition: 0.5s;
+    
+}
+
+.pageContent:hover , .pageContent1:hover, .pageContent2:hover, .pageContent3:hover{
+
+
+    width: 29.5vw !important;
+    height: 29.5vw;
+    -webkit-box-shadow: 0px 2px 15px 1px rgba(0,0,0,0.31); 
+    box-shadow: 0px 2px 15px 1px rgba(0,0,0,0.31);
+    transition: 0.5s;
+    
+}
+
+  }
 
 /*Key Frames*/
 @-webkit-keyframes slide-in-bottom {

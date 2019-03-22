@@ -137,7 +137,7 @@ body,html{
 
   @media screen and (max-width:1000px) {
     .navMenu-navBar {padding-top: 15px;}
-    .navMenu-navBar a {font-size: 3vw;}
+    .navMenu-navBar a {font-size: 4vw;}
   }
 
   /*init our body*/
