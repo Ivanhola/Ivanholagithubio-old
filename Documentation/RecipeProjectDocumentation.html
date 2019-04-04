@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="DocumentationCSS/RecipeProject.css">
+    <link href="prism.css" rel="stylesheet" />
+
+    <title>Portfolio</title>
+</head>
+<body>
+    <div class="top-heading">
+    <h1>Recipe Project Documentation</h1>
+    <br>
+    <br>
+    <h2>Author</h2>
+    <br>
+    <p>Ivan Llamas</p>
+    <hr>
+    <br>
+    <h3>Table of Contents</h3>  
+    <ul>
+    <li><h1><a href="#documentation-part-setup">How To Setup/Install</a></h1></li>
+    <br>
+
+    <li><h1><a href="#documentation-part-technologies">Technologies</a></h1></li>
+        <ol>
+            <li><h2><a href="">Spring Framework + Spring Boot</a></h2></li>
+            <li><h2><a href="">Object-to-Relational Mapping + Entities</a></h2></li>
+            <li><h2><a href="">Spring Data JPA</a></h2></li>
+            <li><h2><a href="">H2 Database</a></h2></li>
+            <li><h2><a href="">Maven</a></h2></li>
+            
+        </ol>
+        <br>
+    <li><h1><a href="#documentation-part-overview">Structure Overview</a></h1></li>  
+    <ol>
+            <li><h2><a href="#documentation-part-overview-package">Packages</a></h2></li>
+            <ol type="a">
+                <li><h4><a href="#documentation-part-overview-package-entity">Entity</a></h3></li>
+                <li><h4><a href="">Controller</a></h3></li>                
+                <li><h4><a href="">Repository</a></h3></li>
+                <li><h4><a href="">Service</a></h3></li>
+                <li><h4><a href="">Data BootStrap</a></h3></li>
+                <li><h4><a href="">Command Objects</a></h3></li>
+                <li><h4><a href="">Converters</a></h3></li>
+                <li><h4><a href="">Exceptions</a></h3></li>
+            </ol>
+            <li><h2><a href="">Resources</a></h2></li>
+            <ol type="a">
+                <li><h4><a href="">Static</a></h3></li>
+                <li><h4><a href="">Templates</a></h3></li> 
+                <li><h4><a href="">application.properties</a></h3></li>   
+                <li><h4><a href="">data.sql</a></h3></li>
+            </ol>   
+        </ol>  
+            <br>
+    <li><h1><a href="">Quick Concept References/Examples</a></h1></li>
+            <ol type="a">
+                    <li><h4><a href="">Entity Examples + Mappings</a></h3></li>
+                    <li><h4><a href="">Object Data Validation</a></h3></li> 
+                    <li><h4><a href="">Data Validation in Thymeleaf</a></h3></li>   
+                    <li><h4><a href="">Simple Controller method</a></h3></li>
+                    <li><h4><a href="">Saving object to Database</a></h3></li>
+                    <li><h4><a href="">How to convert Command Object to Entity and back</a></h3></li>
+                    <li><h4><a href="">Thymeleaf Form</a></h3></li>
+                    <li><h4><a href="">Thymeleaf reading object properties</a></h3></li>
+                    <li><h4><a href="">Save image to Database & Suggestion</a></h3></li>
+            </ol>
+
+            
+ 
+
+    </ul>
+    <br>
+    <hr>   
+</div>
+
+
+    <div class="main-documentation">
+
+        <div id="documentation-part-setup">
+                    <h1>How to Install/Setup</h1>
+                    
+                    <br>    
+                    <p>There are a couple ways to run the program, Being that this is essentially a Maven project, you can run it from the command line
+                        or import it into any IDE that supports Maven projects like, <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>, <a href="https://netbeans.org/" target="_blank">Netbeans</a>, <a href="https://www.eclipse.org/" target="_blank">Eclipse</a>, <a href="https://www.jetbrains.com/idea/" target="_blank">Intellij</a>, and more.
+                    </p>
+                    <br>
+                    <hr>
+                    <br>
+        </div>
+
+        <div id="documentation-part-technologies">
+            <h1>Technologies</h1>
+            
+            <br>    
+            <p>These are the Technologies used in this Project, The main focus being the <a href="https://spring.io/" target="_blank">Spring Framework + Spring Boot</a></p>
+            <br>
+            <hr>
+            <br>
+        </div>
+
+        <div id="documentation-part-overview">
+            <h1>Project Structure</h1>
+            
+            <br>    
+            <p>This project uses the Maven project structure of <code>src ↴ </code><pre>
+                                                                                <code>main ↴</code>
+                                                                                       <code>java</code></pre> In our Java folder, we will find the different packages for our project
+            which each serve with a purpose, seperating the components into different groups which spring will be able to read through the various Spring Annotations
+        like <code class="language-html">@SpringApplication</code>, <code class="language-html">@Component</code>, <code class="language-html">@Service</code>, and others that create Spring beans into the spring context.</p>
+        <br>
+        <hr>
+        <br>
+        </div>
+
+        <div id="documentation-part-overview-package">
+            <h1>1. Packages</h1>
+            <br>
+            <p>Here are the main Java code packages for the Recipe Project. I have organized the packages in way to facilitate reading the code, and give you an idea of how the project is 
+                structured, and flowing together to make up the final piece
+            </p>
+            <br>
+            <hr>
+            <br>
+        </div>
+        <div id="documentation-part-overview-package-entity">
+                <h2>a. Entity Package</h2>
+                <br>
+                <p> This project makes heavy emphasis on spring data JPA Entities and annotations associated with it 
+                    like <strong>@OneToOne</strong>, <strong>@OneToMany</strong>, <strong>@ManyToOne</strong>, <strong>@ManyToMany</strong> and others. We will break down the use of each annotation in the following code snippets from our entity classes and the Structure of the database.
+                </p>
+                <br>    
+        
+        <div class="code-wrapper">       
+                <pre><strong>Lets take a look at our Recipe Entity</strong>
+<code class="language-java">
+@Entity
+public class Recipe {
+                        
+    //PRIMARY KEY
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+                        
+    private String description;
+    private Integer prepTime;
+    private Integer cookTime;
+    private Integer servings;
+    private String source;
+    private String url;
+                            
+    @Lob
+    private String directions;
+                            
+    //this defines the relationship from recipe class, 
+    //the Set of Ingredient objects is going to be in a property called recipe
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "recipe")
+    private Set<Ingredient> ingredients = new HashSet<>();
+                            
+    @Lob
+    private Byte[] image;
+                            
+                            
+    //annotation to mark our enum in our database
+    @Enumerated(value = EnumType.STRING)
+    private Difficulty difficulty; 
+                        
+    //relationship to Note object
+    @OneToOne(cascade = CascadeType.ALL)
+    private Notes notes;
+                            
+                            
+    //joining tables for our recipe -> category, and the columns will be from recipe to category as 'recipe_id'
+    //and from category to recipe as 'category_id'
+    @ManyToMany
+    @JoinTable(name = "recipe_category",
+    joinColumns = @JoinColumn(name = "recipe_id"), 
+        inverseJoinColumns = @JoinColumn(name = "category_id"))
+        private Set<Category> categories = new HashSet<>();
+                
+    //method for adding ingredient to our recipe
+    public Recipe addIngredient(Ingredient ingredient){
+        ingredient.setRecipe(this);
+        this.ingredients.add(ingredient);
+      return this;
+    }
+}</code>You'll notice that this entity has a variety of annotations like @OneToOne, @OneToMany, and @ManyToMany
+this is part of <strong>Hibernate ORM</strong>, and each annotation corresponds to a relationship between columns and tables to other
+columns and other tables in the database (H2 Embedded Database in this case)
+</pre>  
+    </div>
+    
+                <img src="https://i.ibb.co/ZcZTzZt/Screen-Shot-2019-04-03-at-7-03-32-PM.png" style="max-width: 800px" alt="" srcset="">
+                <hr>
+                <br>
+                <br>
+
+                <!-- ONE TO ONE EXPLANATION-->
+                <h2>@OneToOne</h2>
+                <hr>
+                <p>This specifies that there is a relationship in the database tables with a Single relationship, in this case, recipe is related to the Notes entity and in the Notes entity it is related back to recipe</p>
+        <div class="code-wrapper">       
+                        <pre><strong>One To One Example</strong><code class="language-java">
+    
+    @Entity
+    public class Recipe{
+                 //One To One relationship to notes
+        @OneToOne
+        private Notes notes;
+    
+    }
+
+    @Entity
+    public class Notes{
+                 //One To One relationship to recipe 
+        @OneToOne
+        private Recipe recipe;
+
+    }
+        </code>Both of these columns in the database know about each other, you can expect Recipe table to have a Notes_Id columns
+and the Notes column to have a Recipe_Id column that relate to each other</pre></div>            
+<img src="https://i.ibb.co/YyDGMyz/Screen-Shot-2019-04-03-at-7-01-16-PM.png" style="max-width: 600px"alt="" srcset="">
+<hr>
+<br>
+<br>
+        <!-- ONE TO MANY/MANY TO ONE EXPLANATION-->
+        <h2>@OneToMany/@ManyToOne</h2>
+        <hr>
+        <p>Refers to the relationship between 2 entities, where A might be linked to many elements of B but B is only linked to one element of A example: One area can be the habitat of many readers(OneToMany). 
+        but Many readers live in one area. Usually the Variables with @ManyToOne are the 'owning' column in the database, meaning that the table
+        Recipe will NOT have a column for ingredients but ingredients will have a column for Recipe</p>
+        </div> <!-- END OF ENTITY PACKAGE DIV-->
+
+    
+
+        
+    </div><!-- END OF MAIN DOCUMENTATION DIV-->
+
+
+
+
+ 
+
+<script src="prism.js"></script>
+
+</body>
+</html>

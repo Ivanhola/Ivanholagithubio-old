@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "montserrat", sans-serif;
+  }
+  
+  body,html{
+    background: white;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+  
+  }
+
+  .code-wrapper{
+    margin: 0;
+    max-width: 95vw;
+    
+
+    font-size: 1.2vw;
+    
+  }
+
+
+
+
+
+  /* BULLET POINT TOP SECTION CSS CODE */
+  .top-heading{
+
+    font-size: 1.6vw;
+    margin: 2vw;
+
+  }
+
+  .top-heading h1 , .top-heading h2 ,.top-heading h3, .top-heading h4, .top-heading p, .top-heading a{
+    font-weight: 1;
+  }
+
+  .top-heading ul, .top-heading ol, .top-heading li{
+
+      margin-left: 2vw;
+      margin-top: 1vw;
+      line-height: 0.8;
+  }
+
+
+
+  .top-heading a , .top-heading a:visited{
+    color: #0075A2;
+    text-decoration: none;
+
+  }
+
+
+
+  /*MAIN CSS BODY FOR THE DIV BELOW THE INITIAL BULLET POINTS*/
+
+  .main-documentation{
+    font-size: 1.4vw;
+    margin: 2vw;
+  }
+
+
+
+  .main-documentation a , .main-documentation a:visited{
+    color: #0075A2;
+    text-decoration: none;
+  }
+

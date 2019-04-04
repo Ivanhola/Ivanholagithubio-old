@@ -14,30 +14,6 @@
     
 }
 
-/*Animation*/
-.pageContent{
-
-	 
-             
-            -webkit-animation: slide-in-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both,fade-in 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-            animation: slide-in-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both , fade-in 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-}
-
-.pageContent1{
-    -webkit-animation: slide-in-bottom 1.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both,fade-in 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.3s both;
-    animation: slide-in-bottom 1.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both , fade-in 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.3s both;
-}
-.pageContent2{
-    -webkit-animation: slide-in-bottom 1.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both,fade-in 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.6s both;
-    animation: slide-in-bottom 1.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both , fade-in 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.6s both;
-}
-.pageContent3{
-    -webkit-animation: slide-in-bottom 1.9s cubic-bezier(0.250, 0.460, 0.450, 0.940) both,fade-in 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.9s both;
-    animation: slide-in-bottom 1.9s cubic-bezier(0.250, 0.460, 0.450, 0.940) both , fade-in 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.9s both;
-}
-
-
-
 .pageContent:hover , .pageContent1:hover, .pageContent2:hover, .pageContent3:hover{
 
 
@@ -113,6 +89,7 @@
 
 }
 
+  /*Responsive Design TODO*/
   @media screen and (min-width:1900px) {
       
     .pageContent , .pageContent1, .pageContent2, .pageContent3{
@@ -139,6 +116,37 @@
 }
 
   }
+
+
+
+
+/*Animation*/
+.pageContent{
+
+	 
+             
+            -webkit-animation: slide-in-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both,fade-in 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: slide-in-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both , fade-in 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.pageContent1{
+    -webkit-animation: slide-in-bottom 1.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both,fade-in 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.3s both;
+    animation: slide-in-bottom 1.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both , fade-in 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.3s both;
+}
+.pageContent2{
+    -webkit-animation: slide-in-bottom 1.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both,fade-in 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.6s both;
+    animation: slide-in-bottom 1.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both , fade-in 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.6s both;
+}
+.pageContent3{
+    -webkit-animation: slide-in-bottom 1.9s cubic-bezier(0.250, 0.460, 0.450, 0.940) both,fade-in 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.9s both;
+    animation: slide-in-bottom 1.9s cubic-bezier(0.250, 0.460, 0.450, 0.940) both , fade-in 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.9s both;
+}
+
+
+
+
+
+
 
 /*Key Frames*/
 @-webkit-keyframes slide-in-bottom {
