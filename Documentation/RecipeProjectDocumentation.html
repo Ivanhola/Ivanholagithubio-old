@@ -46,7 +46,7 @@
             <ol type="a">
                 <li><h4><a href="#documentation-part-overview-package-entity">Entity</a></h3></li>
                 <li><h4><a href="#documentation-part-overview-package-repository">Repository</a></h3></li>
-                <li><h4><a href="">Service</a></h3></li>                
+                <li><h4><a href="#documentation-part-overview-package-service">Service</a></h3></li>                
                 <li><h4><a href="">Data BootStrap</a></h3></li>
                 <li><h4><a href="">Command Objects</a></h3></li>
                 <li><h4><a href="">Converters</a></h3></li>
@@ -340,11 +340,116 @@ public class BootStrap{
                 <h2>b. Repository Package</h2>
                 <br>
                 <p> In order for us to upload our entity data into our database, we need to connect to the database, and be able to communicate in order
-                    to pass our objects and data to the database. To do this, we make use of Spring data JPA/
+                    to pass our objects and data to the database. To do this, we make use of <strong>Spring data JPA</strong> and the <strong>CrudRepository</strong> interface with Spring
                 </p>
-                <br>  
-        </div>
+                <br> 
+                <div class="code-wrapper">       
+                    <pre><strong>Lets take a look at our Recipe Repository</strong><code class="language-java">
+        public interface RecipeRepository extends CrudRepository<Recipe, Long>{
+        }                                    
+ </code>By using the <a href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html" target="_blank">CrudRepository Interface</a> We have access to basic <strong>CRUD Methods</strong> to interact with our database.</pre> </div> 
 
+        </div> <!-- END OF REPOSITORY DIV -->
+
+        <div id="documentation-part-overview-package-service">
+            <h2>c. Service Package</h2>
+            <br>
+            <p> These classes are used to <strong>@Autowired</strong>/Inject a <a href="#documentation-part-overview-package-repository">Repository</a>, and be able to customize/use the CRUD Methods
+                provided
+            </p>
+            <br>
+            <div class="code-wrapper">       
+                <pre><strong>Recipe Service Interface</strong><code class="language-java">
+ //create a Service Interface
+public interface RecipeService {
+  
+    Set<Recipe> getRecipes();
+                        
+    Recipe findById(Long l); 
+    
+    void deleteById(Long id);
+    
+    //used for POST operations/forms
+    RecipeCommand saveRecipeCommand(RecipeCommand command);
+
+    //used for POST operations/forms                  
+    RecipeCommand findCommandById(Long l);
+                        
+
+}                                   
+</code>This Interface will have methods that will be used to perform CRUD operations, 
+In order to use this interface we must create an <strong>Implementation class for it</strong></pre></div> 
+<br>
+<div class="code-wrapper">       
+        <pre><strong>RecipeServiceImpl.java</strong><code class="language-java">
+@Service
+public class RecipeServiceImpl implements RecipeService{
+                
+    private final RecipeRepository recipeRepository;
+                    
+    //command objects
+    private final RecipeCommandToRecipe recipeCommandToRecipe;
+    private final RecipeToRecipeCommand recipeToRecipeCommand;
+                
+    @Autowired
+    public RecipeServiceImpl(RecipeRepository recipeRepository, RecipeCommandToRecipe recipeCommandToRecipe, RecipeToRecipeCommand recipeToRecipeCommand) {
+                        this.recipeRepository = recipeRepository;
+                        this.recipeCommandToRecipe = recipeCommandToRecipe;
+                        this.recipeToRecipeCommand = recipeToRecipeCommand;
+    }
+                    
+                    
+    @Override
+    public Set<Recipe> getRecipes() {
+    Set<Recipe> recipeSet = new HashSet<>();
+    recipeRepository.findAll().iterator().forEachRemaining(recipeSet::add);
+    return recipeSet;
+}
+                
+    @Override
+    public Recipe findById(Long l) {
+    Optional<Recipe> recipeOptional = recipeRepository.findById(l);
+                        
+    if(recipeOptional.isPresent()){
+    return recipeOptional.get();
+    }else{
+    //response status exception notFOUND
+    throw new NotFoundException("Recipe not found, ID = " + l.toString());
+    }
+                        
+        }
+                
+    //pass in a command object, and turn it into a Recipe object.
+                    @Override
+                    @Transactional
+                    public RecipeCommand saveRecipeCommand(RecipeCommand command) {
+                        Recipe detachedRecipe = recipeCommandToRecipe.convert(command);
+                        //save the recipe into the database
+                        Recipe savedRecipe = recipeRepository.save(detachedRecipe);
+                        //return a recipeCommand POJO(this will be used to view things on webpage)
+                        return recipeToRecipeCommand.convert(savedRecipe);
+                    }
+                
+                    //Used to update recipes, returns a recipe command by converting a recipe entity
+                    @Override
+                    @Transactional
+                    public RecipeCommand findCommandById(Long l) {
+                       return recipeToRecipeCommand.convert(findById(l));
+                    }
+                
+                    @Override
+                    public void deleteById(Long id) {
+                        recipeRepository.deleteById(id);
+                    }
+                
+                    
+                
+                }
+                                                 
+</code>When using the RecipeService class, Spring will <strong>@Autowired/Depdendency Inject</strong> the RecipeServiceImpl.java, which uses the <strong>RecipeRepository</strong></pre></div> 
+
+
+        </div> <!------------------END OF SERVICE PACKAGE DIV--------------------------->
     
 
         
