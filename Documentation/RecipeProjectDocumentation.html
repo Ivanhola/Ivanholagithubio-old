@@ -45,12 +45,12 @@
             <li><h2><a href="#documentation-part-overview-package">Packages</a></h2></li>
             <ol type="a">
                 <li><h4><a href="#documentation-part-overview-package-entity">Entity</a></h3></li>
-                <li><h4><a href="">Controller</a></h3></li>                
-                <li><h4><a href="">Repository</a></h3></li>
-                <li><h4><a href="">Service</a></h3></li>
+                <li><h4><a href="#documentation-part-overview-package-repository">Repository</a></h3></li>
+                <li><h4><a href="">Service</a></h3></li>                
                 <li><h4><a href="">Data BootStrap</a></h3></li>
                 <li><h4><a href="">Command Objects</a></h3></li>
                 <li><h4><a href="">Converters</a></h3></li>
+                <li><h4><a href="">Controller</a></h3></li>
                 <li><h4><a href="">Exceptions</a></h3></li>
             </ol>
             <li><h2><a href="">Resources</a></h2></li>
@@ -132,6 +132,7 @@
             <hr>
             <br>
         </div>
+
         <div id="documentation-part-overview-package-entity">
                 <h2>a. Entity Package</h2>
                 <br>
@@ -199,12 +200,12 @@ columns and other tables in the database (H2 Embedded Database in this case)
 </pre>  
     </div>
     
-                <img src="https://i.ibb.co/ZcZTzZt/Screen-Shot-2019-04-03-at-7-03-32-PM.png" style="max-width: 800px" alt="" srcset="">
+                <img id="recipe-image"src="https://i.ibb.co/ZcZTzZt/Screen-Shot-2019-04-03-at-7-03-32-PM.png" style="max-width: 800px" alt="" srcset="">
                 <hr>
                 <br>
                 <br>
 
-                <!-- ONE TO ONE EXPLANATION-->
+                <!---------------------------- ONE TO ONE EXPLANATION -------------------------------->
                 <h2>@OneToOne</h2>
                 <hr>
                 <p>This specifies that there is a relationship in the database tables with a Single relationship, in this case, recipe is related to the Notes entity and in the Notes entity it is related back to recipe</p>
@@ -232,13 +233,117 @@ and the Notes column to have a Recipe_Id column that relate to each other</pre><
 <hr>
 <br>
 <br>
-        <!-- ONE TO MANY/MANY TO ONE EXPLANATION-->
+        <!------------------------- ONE TO MANY/MANY TO ONE EXPLANATION ------------------------------>
         <h2>@OneToMany/@ManyToOne</h2>
         <hr>
         <p>Refers to the relationship between 2 entities, where A might be linked to many elements of B but B is only linked to one element of A example: One area can be the habitat of many readers(OneToMany). 
         but Many readers live in one area. Usually the Variables with @ManyToOne are the 'owning' column in the database, meaning that the table
         Recipe will NOT have a column for ingredients but ingredients will have a column for Recipe</p>
+            
+        <div class="code-wrapper">       
+                <pre><strong>One To Many / Many To One Example</strong><code class="language-java">
+
+public class Recipe{
+    
+    //One recipe can have many ingredients
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "recipe")
+    private Set<Ingredient> ingredients;
+}
+                            
+                        /*********************************/
+                            
+public class Ingredient{
+                            
+    //Many Ingredients have one recipe
+    @ManyToOne
+    private Recipe recipe;
+                            
+}
+</code>If you look at the <a href="#recipe-image">Recipe Table</a> you'll notice that there is no ingredients column, that is because
+Ingredient entity is the 'owning column' of the relationship between the two entities, and <strong>Ingredients table</strong> has a <strong>Recipe_ID</strong> column</pre></div>
+<img src="https://i.ibb.co/WpKFd8w/Screen-Shot-2019-04-03-at-9-10-50-PM.png" style="max-width: 500px;" alt="" srcset="">
+<hr>
+<br>
+<br>
+
+            <!---------------- MANY TO MANY ANNOTATION EXPLANATION --------------------->
+            <h2>@ManyToMany</h2>
+            <hr>
+            <p>This refers to the relationship where 2 entities, 
+                A and B, in which A may contain a parent instance for which there are many children in B and vice versa. for example: think of A as Authors, 
+                and B as Books. An Author can write several Books, and a Book can be written by several Authors. In this case, there will be a seperate table 
+                that integrates both of these entities and their respective ID values, as annotated by categories there will be a table called recipe_category
+                 with columns recipe_id and category_id pointing to the recipe and category objects in their respective columns.</p>
+                 <div class="code-wrapper">       
+                        <pre><strong>Many To Many Example</strong><code class="language-java">
+        
+public class Recipe{
+                    //There can be many recipes in different categories
+                    @ManyToMany
+                    @JoinTable(name = "recipe_category",
+                    joinColumns = @JoinColumn(name = "recipe_id"), 
+                    inverseJoinColumns = @JoinColumn(name = "category_id"))
+                    private Set<Category> categories;
+                }
+                                    
+                public class Category{
+                //there can be many catagories of recipes
+                @ManyToMany(mappedBy = "categories")
+                private Set<Recipe> recipes;
+            }
+        </code>If you look at the <a href="#recipe-image">Recipe Table</a> you'll notice that there is no <strong>Categories column</strong>, that is because
+by using the <strong>@JoinTable</strong> annotation, we create a new table in the database, where it holds values and the relationships
+between Categories and Recipe</pre></div>    
+<img src="https://i.ibb.co/RpqyMvv/Screen-Shot-2019-04-03-at-9-33-56-PM.png" style="max-width: 300px" alt="" srcset="">
+<hr>
+<br>
+<!----------------- CASCADE EXPLANATION ------------------------------->
+<h2>Cascade</h2>  
+<hr>
+<p>You may have noticed the Cascade, this means that anything done to the 'notes' variable will cascade down into the Notes entity itself, and the respective columns of that entity.
+     For example, in this program we do not have a NotesRepository to add the Notes objects to our database, by adding a notes object to the recipe it adds to the database, we also have a method however that sets the recipe to the notes which allows for bidirectional relationship</p>
+
+     <div class="code-wrapper">       
+            <pre><strong>Cascade example</strong><code class="language-java">
+
+@Entity
+public class Recipe{
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Notes notes;
+    
+    //setter for Notes
+    public void setNotes(Notes notes) {
+        if(notes != null){
+        this.notes = notes;
+        //convenience to set Recipe
+        notes.setRecipe(this);
+        }
+    }
+
+}
+
+public class BootStrap{
+    //create notes
+    Notes guacNotes = new Notes();
+    guacNotes.setRecipeNotes("this is a descripting");
+                        
+    Recipe testRecipe = new Recipe();
+    //setting Notes to our recipe using setter
+    testRecipe.setNotes(guacNotes);
+}
+</code>Our setter adds the notes to the recipe entity, as well as adds the recipe to the notes entity</pre></div>     
+
         </div> <!-- END OF ENTITY PACKAGE DIV-->
+
+        <div id="documentation-part-overview-package-repository">
+                <h2>b. Repository Package</h2>
+                <br>
+                <p> In order for us to upload our entity data into our database, we need to connect to the database, and be able to communicate in order
+                    to pass our objects and data to the database. To do this, we make use of Spring data JPA/
+                </p>
+                <br>  
+        </div>
 
     
 
